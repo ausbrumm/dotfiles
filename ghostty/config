@@ -1,0 +1,15 @@
+
+# Theme
+theme = rose-pine
+background-opacity = 0.85
+
+# macOS specific features
+macos-titlebar-style = tabs
+
+macos-option-as-alt = false
+window-save-state = always
+window-vsync = true
+window-colorspace = display-p3
+quick-terminal-screen = macos-menu-bar
+
+font-family = 'CaskaydiaCove'
