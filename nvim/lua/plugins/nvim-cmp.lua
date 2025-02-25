@@ -52,7 +52,7 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          { name = "buffer" },
+          -- { name = "buffer" },
           { name = "path" },
         }),
 
@@ -62,7 +62,7 @@ return {
             local icons = {
               nvim_lsp = "[LSP]",
               luasnip = "[Snippet]",
-              buffer = "[Buffer]",
+            --  buffer = "[Buffer]",
               path = "[Path]",
             }
             vim_item.menu = icons[entry.source.name] or entry.source.name
