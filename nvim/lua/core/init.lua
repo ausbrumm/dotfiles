@@ -13,7 +13,7 @@ end
 
 vim.filetype.add({
   extension = {
-   templ = 'templ', 
+   templ = 'templ',
   },
 })
 
