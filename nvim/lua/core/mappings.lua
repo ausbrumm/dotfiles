@@ -6,6 +6,7 @@ local keymap = vim.keymap
 keymap.set("n", "<leader>pv", vim.cmd.Ex, {desc = "Open Explore"}) -- need nvim 0
 
 
+
 -- press jk in insert mode to escape
 keymap.set("i", "jk", "<ESC>", {desc = "Exit Insert mode with jk"})
 
