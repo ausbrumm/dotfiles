@@ -13,11 +13,12 @@ opt.expandtab = true
 opt.autoindent = true
 
 vim.opt.signcolumn = 'yes'
-opt.wrap = false
+--opt.wrap = true -- false
+opt.textwidth = 80
 
 -- search settings
 opt.ignorecase = true -- case insensitive search
-opt.smartcase = true -- uses mixed case for case sensitive search
+opt.smartcase = true  -- uses mixed case for case sensitive search
 
 opt.termguicolors = true
 opt.background = "dark"

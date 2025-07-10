@@ -1,4 +1,3 @@
-
 return {
   {
     "hrsh7th/nvim-cmp",
@@ -34,6 +33,7 @@ return {
             elseif luasnip.expand_or_jumpable() then
               luasnip.expand_or_jump()
             else
+              -- fallback to literal <Tab> (insert a tab or indent)
               fallback()
             end
           end, { "i", "s" }),
@@ -52,8 +52,11 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          -- { name = "buffer" },
+          { name = "copilot" },
+          { name = "nvim_lua" },
+          { name = "buffer" },
           { name = "path" },
+          { name = "friendly-snippets" },
         }),
 
         formatting = {
@@ -62,14 +65,16 @@ return {
             local icons = {
               nvim_lsp = "[LSP]",
               luasnip = "[Snippet]",
-            --  buffer = "[Buffer]",
+              buffer = "[Buffer]",
               path = "[Path]",
+              copilot = "[Copilot]"
             }
             vim_item.menu = icons[entry.source.name] or entry.source.name
             return vim_item
           end,
         },
       })
+
 
       -- Setup for command-line completions
       cmp.setup.cmdline("/", {
