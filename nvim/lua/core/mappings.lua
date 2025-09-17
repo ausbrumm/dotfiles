@@ -39,11 +39,6 @@ vim.keymap.set(
   { desc = "Global Search and Replace" }
 )
 
--- source current file
-vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("so")
-end, { desc = "Source Current File" })
-
 -- fzf
 vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", { desc = "buffers" })
 vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "files" })

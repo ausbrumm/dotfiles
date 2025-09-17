@@ -55,3 +55,11 @@ vim.opt.shortmess:append("c") -- Optional: removes "match 1 of 2" messages
 vim.api.nvim_set_option('omnifunc', '')     -- Only if needed
 
 vim.api.nvim_set_option('completefunc', '') -- Only if needed
+
+
+-- custom file types
+vim.filetype.add({
+  pattern = {
+    [".*%.component%.html"] = "htmlangular",
+  },
+})
