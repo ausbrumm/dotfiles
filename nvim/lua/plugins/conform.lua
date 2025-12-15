@@ -15,18 +15,23 @@ return {
       typescript      = { "prettierd" },
       javascriptreact = { "prettierd" },
       typescriptreact = { "prettierd" },
-      html            = { "prettierd" },
+      html            = { "htmlbeautifier", "prettierd", stop_after_first = true },
       css             = { "prettierd" },
       scss            = { "prettierd" },
       json            = { "prettierd" },
       yaml            = { "prettierd" },
       markdown        = { "prettierd" },
       graphql         = { "prettierd" },
-      c               = { "clang-format" },
-      cpp             = { "clang-format" },
+      c               = { "clang-format", "prettierd", stop_after_first = true },
+      cpp             = { "clang-format", "prettierd", stop_after_first = true },
       go              = { "goimports" },
       rust            = { "rustfmt" },
-      python          = { "ruff" }
+      python          = { "ruff" },
+      csharp          = { "csharpier", "prettierd", stop_after_first = true },
+      php             = { "pretty-php" },
+      sh              = { "shfmt" },
+      lua             = { "stylua" },
+      sql             = { "sql-formmater" }
     },
     formatters = {
       prettierd = {

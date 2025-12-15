@@ -53,3 +53,11 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- disabling need for prettier config
 vim.g.lazyvim_prettier_needs_config = false
+
+
+-- disable by default
+vim.g.copilot_filetypes = {
+  ["*"] = false,
+}
+-- explicitly request for copilot suggestions on Ctrl-Enter
+vim.keymap.set('i', '<C-CR>', '<Plug>(copilot-suggest)')

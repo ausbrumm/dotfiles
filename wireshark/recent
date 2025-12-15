@@ -1,4 +1,4 @@
-# Recent settings file for Wireshark 4.4.8.
+# Recent settings file for Wireshark 4.6.0.
 #
 # This file is regenerated each time Wireshark is quit
 # and when changing configuration profile.
@@ -99,7 +99,7 @@ gui.geometry_main_upper_pane: 498
 
 # Main window middle pane size.
 # Decimal number.
-gui.geometry_main_lower_pane: 445
+gui.geometry_main_lower_pane: 624
 
 # Main window master splitter state.
 # Hex byte string.
@@ -108,6 +108,10 @@ gui.geometry_main_master_split: 000000ff0000000100000002000000da000000db00ffffff
 # Main window extra splitter state.
 # Hex byte string.
 gui.geometry_main_extra_split: 000000ff0000000100000002000001bd000001be00ffffffff010000000100
+
+# Splitter state of PacketDialog window.
+# Qt Splitter state (hex byte string).
+gui.geom.PacketDialog.splitter: 000000ff0000000100000002000000c0000000e201ffffffff010000000200
 
 # Splitter state of PreferencesDialog window.
 # Qt Splitter state (hex byte string).
@@ -122,7 +126,7 @@ column.width:
         %d, -1,
         %p, -1,
         %L, -1,
-        %i, 492
+        %i, 627
 
 # Open conversation dialog tabs.
 # List of conversation names, e.g. "TCP", "IPv6".
@@ -154,3 +158,14 @@ gui.additional_toolbar_show:
 # Interface Toolbars show.
 # List of interface toolbars to show.
 gui.interface_toolbar_show: 
+
+# TCP Stream Graphs Moving Average Window Size.
+gui.tsd_ma_window_size: 1
+
+# TCP Stream Graphs Dialog Throughput show (hide).
+# true or false (case-insensitive).
+gui.tsd_throughput_show: true
+
+# TCP Stream Graphs Dialog Goodput show (hide).
+# true or false (case-insensitive).
+gui.tsd_goodput_show: false

@@ -1,7 +1,7 @@
 
 # Theme
-theme = rose-pine
-background-opacity = 0.85
+theme = Rose Pine
+background-opacity = 0.95
 
 # macOS specific features
 macos-titlebar-style = tabs
@@ -12,4 +12,4 @@ window-vsync = true
 window-colorspace = display-p3
 quick-terminal-screen = macos-menu-bar
 
-font-family = 'CaskaydiaCove'
+font-family = 'CaskaydiaCove Nerd Font Mono'

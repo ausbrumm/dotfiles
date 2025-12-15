@@ -1,4 +1,5 @@
 return {
+
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -13,10 +14,15 @@ return {
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
+      local copilot = require("copilot")
+
+      copilot.setup({
+        suggestion = { enabled = false }, -- Disable inline suggestions
+        panel = { enabled = false },      -- Disable panel
+      })
 
       -- Load snippets from friendly-snippets
       require("luasnip.loaders.from_vscode").lazy_load()
-
       cmp.setup({
         snippet = {
           expand = function(args)
@@ -52,7 +58,7 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          --          { name = "copilot" },
+          { name = "copilot" },
           { name = "nvim_lua" },
           { name = "buffer" },
           { name = "path" },
@@ -67,7 +73,7 @@ return {
               luasnip = "[Snippet]",
               buffer = "[Buffer]",
               path = "[Path]",
-              --            copilot = "[Copilot]"
+              copilot = "[Copilot]"
             }
             vim_item.menu = icons[entry.source.name] or entry.source.name
             return vim_item
