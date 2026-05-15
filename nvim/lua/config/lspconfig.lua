@@ -13,6 +13,7 @@ require("config.lsp.phpactor")
 require("config.lsp.rustanalyzer")
 require("config.lsp.tailwindcss")
 require("config.lsp.tsls")
+require("config.lsp.nestjs")
 
 -- Enable servers that use vim.lsp.config
 -- NOTE: eslint is NOT included here because it uses nvim-lspconfig

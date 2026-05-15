@@ -1,22 +1,15 @@
-return {
-  "folke/trouble.nvim",
-  opts = { icons = true}, -- for default options, refer to the configuration section for custom setup.
-  config = function()
-    require("trouble").setup({
-      icons = false,
-    })
+vim.pack.add({ "https://github.com/folke/trouble.nvim" }, { confirm = false })
 
-    -- Keybindings
-    vim.keymap.set("n", "<leader>t", function()
-      require("trouble").toggle()
-    end)
+require("trouble").setup({})
 
-    vim.keymap.set("n", "<leader>tn", function()
-      require("trouble").next({skip_groups = true, jump = true})
-    end)
+vim.keymap.set("n", "<leader>t", function()
+  require("trouble").toggle({ mode = "diagnostics" })
+end, { desc = "Toggle trouble diagnostics" })
 
-    vim.keymap.set("n", "<leader>tp", function()
-      require("trouble").prev({skip_groups = true, jump = true})
-    end)
-  end
-}
+vim.keymap.set("n", "]t", function()
+  require("trouble")._action("next")({ mode = "diagnostics", jump = true })
+end, { desc = "Next trouble item" })
+
+vim.keymap.set("n", "[t", function()
+  require("trouble")._action("prev")({ mode = "diagnostics", jump = true })
+end, { desc = "Prev trouble item" })

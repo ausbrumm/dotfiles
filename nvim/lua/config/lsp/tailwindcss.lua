@@ -2,8 +2,9 @@
 local common = require("config.lsp.common")
 
 vim.lsp.config("tailwindcss", {
-	cmd = { vim.fn.stdpath("data") .. "/mason/bin/tailwindcss-language-server", "--stdio" },
+	cmd = { "tailwindcss-language-server", "--stdio" },
 	filetypes = {
+		"html",
 		"javascript",
 		"javascriptreact",
 		"typescript",

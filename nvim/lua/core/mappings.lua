@@ -45,13 +45,13 @@ vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "files" })
 vim.keymap.set("n", "<leader>f", "<cmd>FzfLua<CR>", { desc = "fzf" })
 
 vim.api.nvim_create_user_command("Format", function()
-  require("conform").format({ async = true, lsp_fallback = true, timeout_ms = 500 })
+  require("conform").format({ async = true, lsp_format = "fallback", timeout_ms = 500 })
 end, {})
 
 local conform = require("conform")
 vim.keymap.set({ "n", "v" }, "<leader>l", function()
   conform.format({
-    lsp_fallback = true,
+    lsp_format = "fallback",
     async = false,
     timeout_ms = 500,
   })

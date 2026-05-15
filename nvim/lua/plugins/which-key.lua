@@ -1,11 +1,6 @@
-return {
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 200
-  end,
-  opts = {
-    -- leave opts empty for default
-  },
-}
+vim.pack.add({ "https://github.com/folke/which-key.nvim" }, { confirm = false })
+
+vim.o.timeout = true
+vim.o.timeoutlen = 200
+
+require("which-key").setup({})

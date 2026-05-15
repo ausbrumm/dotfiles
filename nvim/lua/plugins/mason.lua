@@ -1,16 +1,8 @@
-return {
-	{
-		"mason-org/mason.nvim",
-		opts = {
-			ensure_installed = {
-				"tailwindcss-language-server",
-				"angular-language-server",
-				"vue-language-server",
-			},
-			registries = {
-				"github:mason-org/mason-registry",
-				"github:Crashdummyy/mason-registry",
-			},
-		},
-	},
-}
+vim.pack.add({ "https://github.com/mason-org/mason.nvim" }, { confirm = false })
+
+require("mason").setup({
+  registries = {
+    "github:mason-org/mason-registry",
+    "github:Crashdummyy/mason-registry",
+  },
+})

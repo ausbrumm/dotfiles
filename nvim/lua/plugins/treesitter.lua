@@ -1,52 +1,36 @@
-return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  config = function()
-    require('nvim-treesitter.configs').setup({
-      -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-      ensure_installed = { "vimdoc", "javascript", "typescript", "tsx",
-        "json", "html", "css", "scss", "lua", "python",
-        "jsonc", "rust", "go", "bash", "cpp", "c", "toml",
-        "dockerfile", "graphql", "haskell", "latex", "swift", "angular" },
-      ignore_installed = { "org" },
-      -- install parsers sybcronously (only applied to 'ensure_installed')
-      sync_install = false,
-      auto_install = true,
-      indent = {
-        enable = true,
-      },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = { 'markdown', 'angular' },
-      },
-    })
+-- NOTE: Run :TSUpdate after first install; :TSInstall <lang> to add parsers
+vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" }, { confirm = false })
 
-    vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-      pattern = { "*.component.html", "*.container.html" },
-      callback = function(args)
-        vim.bo[args.buf].filetype = "angular"
-      end,
-    })
-
-    local treesitter_parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
-    treesitter_parser_configs.templ = {
-      install_info = {
-        url = "https://github.com/vrischmann/tree-sitter-templ.git",
-        files = { "src/parser.c", "src/scanner.c" },
-        branch = "master"
-      },
-    }
-
-
-    treesitter_parser_configs.angular = {
-      install_info = {
-        url = "https://github.com/ikatyang/tree-sitter-angular",
-        files = { "src/parser.c" },
-        branch = "main",
-      },
-      filetype = "angular", -- optionally map it over .html files
-    }
-
-    vim.treesitter.language.register('templ', 'templ')
+-- Angular filetype detection
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.component.html", "*.container.html" },
+  callback = function(args)
+    vim.bo[args.buf].filetype = "htmlangular"
   end,
-}
+})
+
+vim.filetype.add({ extension = { templ = "templ" } })
+vim.treesitter.language.register("templ", "templ")
+
+-- Install parsers on startup if not already present
+vim.api.nvim_create_autocmd("VimEnter", {
+  once = true,
+  callback = function()
+    local install = require("nvim-treesitter.install")
+    local config = require("nvim-treesitter.config")
+    local want = {
+      "vimdoc", "javascript", "typescript", "tsx",
+      "json", "html", "css", "scss", "lua", "python",
+      "rust", "go", "bash", "cpp", "c", "toml",
+      "dockerfile", "graphql", "haskell", "latex", "swift",
+    }
+    local installed = vim.list_contains and {} or {}
+    for _, v in ipairs(config.get_installed()) do
+      installed[v] = true
+    end
+    local missing = vim.tbl_filter(function(l) return not installed[l] end, want)
+    if #missing > 0 then
+      install.install(missing)
+    end
+  end,
+})

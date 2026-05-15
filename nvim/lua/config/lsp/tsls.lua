@@ -7,7 +7,4 @@ vim.lsp.config("ts_ls", {
 	root_markers = { "tsconfig.json", "jsconfig.json", "package.json" },
 	capabilities = common.capabilities,
 	single_file_support = false,
-	on_attach = function(client)
-		client.server_capabilities.documentFormattingProvider = false
-	end,
 })

@@ -1,6 +1,3 @@
-return {
-	"esmuellert/nvim-eslint",
-	config = function()
-		require("nvim-eslint").setup({})
-	end,
-}
+vim.pack.add({ "https://github.com/esmuellert/nvim-eslint" }, { confirm = false })
+
+require("nvim-eslint").setup({})

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nvim *)",
+      "Bash(git -C ~/.local/share/nvim/site/pack/core/opt/harpoon/ branch -a)",
+      "Bash(git -C ~/.local/share/nvim/site/pack/core/opt/harpoon/ log --oneline -3)"
+    ]
+  }
+}
