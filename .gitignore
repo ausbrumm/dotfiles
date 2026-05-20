@@ -6,3 +6,9 @@ jgit/*
 qBittorrent/*
 raycast/*
 .DS_Store
+wireshark/*
+gh/*
+skhd/*
+yabai/*
+cagent/*
+**/.claude/*
