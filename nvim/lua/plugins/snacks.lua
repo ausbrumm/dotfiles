@@ -1,11 +1,14 @@
 vim.pack.add({ "https://github.com/folke/snacks.nvim" }, { confirm = false })
 
 require("snacks").setup({
+  bigfile = { enabled = true },
   bufdelete = { enabled = true },
+  gh = { enabled = true },
   gitbrowse = { enabled = true },
   image = { enabled = true },
   picker = { enabled = true },
   rename = { enabled = true },
+  scroll = { enabled = true },
 })
 
 vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Delete buffer" })
