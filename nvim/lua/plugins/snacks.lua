@@ -3,6 +3,7 @@ vim.pack.add({ "https://github.com/folke/snacks.nvim" }, { confirm = false })
 require("snacks").setup({
   bufdelete = { enabled = true },
   gitbrowse = { enabled = true },
+  image = { enabled = true },
   picker = { enabled = true },
   rename = { enabled = true },
 })
