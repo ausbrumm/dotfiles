@@ -39,11 +39,6 @@ vim.keymap.set(
   { desc = "Global Search and Replace" }
 )
 
--- fzf
-vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", { desc = "buffers" })
-vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "files" })
-vim.keymap.set("n", "<leader>f", "<cmd>FzfLua<CR>", { desc = "fzf" })
-
 vim.api.nvim_create_user_command("Format", function()
   require("conform").format({ async = true, lsp_format = "fallback", timeout_ms = 500 })
 end, {})

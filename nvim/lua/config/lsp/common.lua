@@ -1,9 +1,6 @@
 -- Shared LSP configuration: capabilities, LspAttach autocmd
 local M = {}
 
--- Setup Mason
-require("mason").setup({})
-
 -- Setup capabilities with nvim-cmp
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = vim.lsp.protocol.make_client_capabilities()

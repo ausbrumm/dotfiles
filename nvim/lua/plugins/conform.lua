@@ -1,6 +1,3 @@
-local global_node_modules = vim.fn.trim(vim.fn.system("npm root -g"))
-local prettierd_path = vim.fn.trim(vim.fn.system("which prettierd"))
-
 vim.pack.add({ "https://github.com/stevearc/conform.nvim" }, { confirm = false })
 
 require("conform").setup({
@@ -29,14 +26,13 @@ require("conform").setup({
     php             = { "pretty-php" },
     sh              = { "shfmt" },
     lua             = { "stylua" },
-    sql             = { "sql-formmater" },
+    sql             = { "sql_formatter" },
   },
   formatters = {
     prettierd = {
-      command = prettierd_path,
+      command = "prettierd",
       env = {
         PRETTIERD_DEFAULT_CONFIG = "~/.config/prettier/.prettierrc.json",
-        NODE_PATH = global_node_modules,
       },
     },
   },

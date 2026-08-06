@@ -16,37 +16,21 @@ vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
 vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 
-local function toggle_telescope(harpoon_files)
-  local conf = require("telescope.config").values
-  local file_paths = {}
-  for _, item in ipairs(harpoon_files.items) do
-    table.insert(file_paths, item.value)
+local function toggle_harpoon(harpoon_files)
+  local items = {}
+  for index, item in ipairs(harpoon_files.items) do
+    items[#items + 1] = { file = item.value, index = index }
   end
 
-  local make_finder = function()
-    local paths = {}
-    for _, item in ipairs(harpoon_files.items) do
-      table.insert(paths, item.value)
-    end
-    return require("telescope.finders").new_table({ results = paths })
-  end
-
-  require("telescope.pickers").new({}, {
-    prompt_title = "Harpoon",
-    finder = require("telescope.finders").new_table({ results = file_paths }),
-    previewer = conf.file_previewer({}),
-    sorter = conf.generic_sorter({}),
-    attach_mappings = function(prompt_buffer_number, map)
-      map("i", "<C-d>", function()
-        local state = require("telescope.actions.state")
-        local selected_entry = state.get_selected_entry()
-        local current_picker = state.get_current_picker(prompt_buffer_number)
-        table.remove(harpoon_files.items, selected_entry.index)
-        current_picker:refresh(make_finder())
-      end)
-      return true
+  Snacks.picker({
+    title = "Harpoon",
+    items = items,
+    format = "file",
+    confirm = function(picker, item)
+      picker:close()
+      harpoon_files:select(item.index)
     end,
-  }):find()
+  })
 end
 
-vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
+vim.keymap.set("n", "<C-e>", function() toggle_harpoon(harpoon:list()) end, { desc = "Open harpoon window" })

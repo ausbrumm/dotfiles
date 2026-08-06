@@ -46,23 +46,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Find all files matching a NestJS class type across the project
 		vim.keymap.set("n", "<leader>nm", function()
-			require("fzf-lua").files({ prompt = "Modules> ", file_ignore_patterns = {}, query = ".module.ts" })
+			Snacks.picker.files({ title = "Modules", pattern = ".module.ts" })
 		end, vim.tbl_extend("force", opts, { desc = "NestJS: find modules" }))
 
 		vim.keymap.set("n", "<leader>nc", function()
-			require("fzf-lua").files({ prompt = "Controllers> ", query = ".controller.ts" })
+			Snacks.picker.files({ title = "Controllers", pattern = ".controller.ts" })
 		end, vim.tbl_extend("force", opts, { desc = "NestJS: find controllers" }))
 
 		vim.keymap.set("n", "<leader>ns", function()
-			require("fzf-lua").files({ prompt = "Services> ", query = ".service.ts" })
+			Snacks.picker.files({ title = "Services", pattern = ".service.ts" })
 		end, vim.tbl_extend("force", opts, { desc = "NestJS: find services" }))
 
 		vim.keymap.set("n", "<leader>nd", function()
-			require("fzf-lua").files({ prompt = "DTOs> ", query = ".dto.ts" })
+			Snacks.picker.files({ title = "DTOs", pattern = ".dto.ts" })
 		end, vim.tbl_extend("force", opts, { desc = "NestJS: find DTOs" }))
 
 		vim.keymap.set("n", "<leader>ng", function()
-			require("fzf-lua").files({ prompt = "Guards> ", query = ".guard.ts" })
+			Snacks.picker.files({ title = "Guards", pattern = ".guard.ts" })
 		end, vim.tbl_extend("force", opts, { desc = "NestJS: find guards" }))
 	end,
 })

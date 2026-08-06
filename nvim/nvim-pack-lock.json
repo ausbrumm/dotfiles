@@ -118,6 +118,10 @@
       "rev": "90d43d35f0ebb5ecf1df734194cb568a162de4cb",
       "src": "https://github.com/seblyng/roslyn.nvim"
     },
+    "snacks.nvim": {
+      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
+      "src": "https://github.com/folke/snacks.nvim"
+    },
     "telescope.nvim": {
       "rev": "7d324792b7943e4aa16ad007212e6acc6f9fe335",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
