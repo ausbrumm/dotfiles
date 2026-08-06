@@ -13,6 +13,7 @@ vim.lsp.config("gopls", {
 				shadow = true,
 				unusedwrite = true,
 			},
+			completeUnimported = true,
 			staticcheck = true,
 			gofumpt = true,
 			hints = {

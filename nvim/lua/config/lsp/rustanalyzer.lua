@@ -13,6 +13,10 @@ vim.lsp.config("rust_analyzer", {
 				loadOutDirsFromCheck = true,
 				buildScripts = { enable = true },
 			},
+			completion = {
+				autoimport = { enable = true },
+				fullFunctionSignatures = { enable = true },
+			},
 			checkOnSave = true,
 			check = {
 				command = "clippy",
