@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     local install = require("nvim-treesitter.install")
     local config = require("nvim-treesitter.config")
     local want = {
-      "vimdoc", "javascript", "typescript", "tsx",
+      "vimdoc", "markdown", "markdown_inline", "javascript", "typescript", "tsx",
       "json", "html", "css", "scss", "lua", "python",
       "rust", "go", "bash", "cpp", "c", "toml",
       "dockerfile", "graphql", "haskell", "latex", "swift",
