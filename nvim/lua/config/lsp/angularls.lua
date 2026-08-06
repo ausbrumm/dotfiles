@@ -17,7 +17,7 @@ vim.lsp.config("angularls", {
 				.. root .. "/node_modules/@angular/language-server/node_modules",
 		}
 	end,
-	filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx" },
+	filetypes = { "typescript", "html", "typescriptreact" },
 	root_dir = function(bufnr, on_dir)
 		local root = vim.fs.root(bufnr, { "angular.json", "project.json" })
 		if root then
