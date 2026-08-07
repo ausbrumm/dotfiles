@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		if not root or vim.fn.filereadable(root .. "/nest-cli.json") == 0 then return end
 
 		-- Push NestJS-specific workspace configuration to the running ts_ls instance
-		client.notify("workspace/didChangeConfiguration", {
+		client:notify("workspace/didChangeConfiguration", {
 			settings = {
 				typescript = {
 					preferences = {

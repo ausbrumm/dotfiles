@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 require("plugins")
+require("config.lsp-log")
 require("config.lspconfig")
 require("config.lspconfig-cmds")
 require("core")
